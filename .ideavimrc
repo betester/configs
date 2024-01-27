@@ -1,0 +1,87 @@
+
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+let mapleader = " "
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+"text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set clipboard+=unnamedplus
+set relativenumber
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+" Formats
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+
+"File Navigation
+nnoremap <leader>sr :action RecentFiles <CR>
+nnoremap <leader>sc :action GotoClass <CR>
+nnoremap <leader>sf :action GotoFile <CR>
+map      <leader>sl <Action>(SelectInProjectView)
+" nnoremap <leader>sg :action TextSearchAction<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>ds :action ActivateStructureToolWindow<CR>
+nnoremap <leader>of :action OpenFile<CR>
+nnoremap <leader>sd :action ActivateProblemsViewToolWindow<CR>
+
+
+"File Action
+nnoremap <leader>rr :action Run <CR>
+nnoremap <leader>rd :action Debug<CR>
+
+"Debug
+nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
+
+"Goto Command
+nnoremap gI :action GotoImplementation <CR>
+nnoremap gk :action ParameterInfo <CR>
+
+
+nnoremap [[ ?^\s*class\s<CR>
+nnoremap ]] /^\s*class\s<CR>
+
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+"Code Action
+vnoremap <leader>cr :action Replace<CR>
+nnoremap <leader>cc :action CommentByLineComment <CR>
+vnoremap <leader>cc :action CommentByLineComment <CR>
+nnoremap <leader>ca :action ShowIntentionActions <CR>
+vnoremap <leader>ca :action ShowIntentionActions <CR>
+
+"Window
+nnoremap <C-W>wv :action SplitVertically <CR>
+nnoremap <C-W>wl : :action GotoRight<CR>
+nnoremap <C-W>wh : :action GotoLeft<CR>
+
+"Refactor
+nnoremap <leader>rn :action RenameElement<CR>
+
+"Testing
+map <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+toPreviousError
+toPreviousError
